@@ -1,0 +1,180 @@
+[
+    {
+        "id": 1,
+        "profilepic": "https://randomuser.me/api/portraits/women/44.jpg",
+        "username": "hellen.ramirez24",
+        "date": "28/10/25",
+        "description": "Just completed the pull + Abs workout, let's keep goingg!!",
+        "image": "https://i.pinimg.com/736x/6b/20/33/6b20330c8d99b7693db57da5a927dea7.jpg",
+        "likes": 10,
+        "hashtag": "#gym",
+        "comments": [
+            {
+                "id": 1,
+                "username": "andrea.melendez10",
+                "profilepic": "https://randomuser.me/api/portraits/women/47.jpg",
+                "comment": "You're killing it 🔥 I tried that workout last week and my abs were on fire!",
+                "likes": 4,
+                "date": "29/10/25"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "profilepic": "https://randomuser.me/api/portraits/women/45.jpg",
+        "username": "joha_palacios15",
+        "date": "15/09/25",
+        "description": "My lunch today! Fueling my body with something healthy 💚 Hope you eat something that makes you feel good too!",
+        "image": "https://i.pinimg.com/736x/cd/d5/45/cdd545113d17582732686c488f7ece66.jpg",
+        "likes": 3,
+        "hashtag": "#foodie",
+        "comments": [
+            {
+                "id": 1,
+                "username": "carlos.blond99",
+                "profilepic": "https://randomuser.me/api/portraits/men/47.jpg",
+                "comment": "That looks amazing! What's in the salad? 🥗",
+                "likes": 2,
+                "date": "16/09/25"
+            },
+            {
+                "id": 2,
+                "username": "hellen.ramirez24",
+                "profilepic": "https://randomuser.me/api/portraits/women/44.jpg",
+                "comment": "I need this recipe ASAP 😍",
+                "likes": 1,
+                "date": "17/09/25"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "profilepic": "https://randomuser.me/api/portraits/women/47.jpg",
+        "username": "andrea.melendez10",
+        "date": "10/08/25",
+        "description": "Morning run finished! Sometimes the hardest step is just putting on your shoes.",
+        "image": "https://i.pinimg.com/1200x/22/39/79/2239794a721f16215acc4c7a252af6d9.jpg",
+        "likes": 11,
+        "hashtag": "#runnies",
+        "comments": []
+    },
+    {
+        "id": 4,
+        "profilepic": "https://randomuser.me/api/portraits/men/46.jpg",
+        "username": "alex_perea07",
+        "date": "05/07/25",
+        "description": "First 2 km run! Out of breath, but full of motivation. Wanna go and run together?",
+        "image": "https://i.pinimg.com/736x/b8/59/49/b85949c7abaa50046d394f122c2673a1.jpg",
+        "likes": 4,
+        "hashtag": "#runnies",
+        "comments": [
+            {
+                "id": 1,
+                "username": "andrea.melendez10",
+                "profilepic": "https://randomuser.me/api/portraits/women/47.jpg",
+                "comment": "Let's gooo! I'm down for a weekend run 🏃‍♀️",
+                "likes": 3,
+                "liked": false,
+                "date": "06/07/25"
+            },
+            {
+                "id": 2,
+                "username": "manu.rodriguez04",
+                "profilepic": "https://randomuser.me/api/portraits/women/50.jpg",
+                "comment": "That's awesome! Keep it up 💪",
+                "likes": 2,
+                "liked": false,
+                "date": "07/07/25"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "profilepic": "https://randomuser.me/api/portraits/women/48.jpg",
+        "username": "camilaU_20",
+        "date": "20/06/25",
+        "description": "Day 1 at the gym! Not strong yet, but already proud I showed up.",
+        "image": "https://i.pinimg.com/736x/b0/55/b1/b055b121a2566edd5cc43c7f607a5636.jpg",
+        "likes": 16,
+        "hashtag": "#runnies",
+        "comments": []
+    },
+    {
+        "id": 6,
+        "profilepic": "https://randomuser.me/api/portraits/men/47.jpg",
+        "username": "carlos.blond99",
+        "date": "12/05/25",
+        "description": "Learning to cook healthier meals. It feels good to fuel my body right.",
+        "image": "https://i.pinimg.com/1200x/0b/c5/23/0bc523a2ee577e2f8a27339d3abf20cc.jpg",
+        "likes": 6,
+        "hashtag": "#runnies",
+        "comments": [
+            {
+                "id": 1,
+                "username": "joha_palacios15",
+                "profilepic": "https://randomuser.me/api/portraits/women/45.jpg",
+                "comment": "You're inspiring me to start meal prepping again 👏",
+                "likes": 2,
+                "liked": false,
+                "date": "13/05/25"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "profilepic": "https://randomuser.me/api/portraits/women/50.jpg",
+        "username": "manu.rodriguez04",
+        "date": "01/04/25",
+        "description": "I just love a pilates day with my mom and some friends is just so magical",
+        "image": "https://i.pinimg.com/736x/33/21/1f/33211ff572c7bdf2eb3d74442ecd05d2.jpg",
+        "likes": 19,
+        "hashtag": "#runnies",
+        "comments": [
+            {
+                "id": 1,
+                "username": "hellen.ramirez24",
+                "profilepic": "https://randomuser.me/api/portraits/women/44.jpg",
+                "comment": "That sounds so relaxing 😌 I need a pilates day soon!",
+                "likes": 5,
+                "liked": false,
+                "date": "02/04/25"
+            },
+            {
+                "id": 2,
+                "username": "joha_palacios15",
+                "profilepic": "https://randomuser.me/api/portraits/women/45.jpg",
+                "comment": "Love that vibe 💕 family workouts are the best!",
+                "likes": 4,
+                "liked": false,
+                "date": "02/04/25"
+            },
+            {
+                "id": 3,
+                "username": "carlos.blond99",
+                "profilepic": "https://randomuser.me/api/portraits/men/47.jpg",
+                "comment": "Never tried pilates but you're convincing me 😅",
+                "likes": 3,
+                "liked": false,
+                "date": "03/04/25"
+            },
+            {
+                "id": 4,
+                "username": "andrea.melendez10",
+                "profilepic": "https://randomuser.me/api/portraits/women/47.jpg",
+                "comment": "I totally agree! It's like therapy for the body 🧘‍♀️",
+                "likes": 6,
+                "liked": false,
+                "date": "04/04/25"
+            },
+            {
+                "id": 5,
+                "username": "alex_perea07",
+                "profilepic": "https://randomuser.me/api/portraits/men/46.jpg",
+                "comment": "You all make me want to join 😎",
+                "likes": 2,
+                "liked": false,
+                "date": "05/04/25"
+            }
+        ]
+    }
+]

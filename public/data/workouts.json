@@ -1,0 +1,62 @@
+[
+    {
+        "image" : "https://i.pinimg.com/736x/b3/25/80/b3258095cad00d7f0a80f03511b0a7a2.jpg",
+        "category": "Pilates",
+        "workouts": 28
+    },
+    {   
+        "image" : "https://i.pinimg.com/1200x/f5/09/15/f509152a0dabf0693e98cdd6d8b978cc.jpg",
+        "category": "Calisthenics",
+        "workouts": 22
+    },
+    {
+        "image" : "https://i.pinimg.com/1200x/8c/bc/e4/8cbce481f2327442978d4d548358a3ef.jpg",
+        "category": "Gym",
+        "workouts": 84
+    },
+    {
+        "image" : "https://i.pinimg.com/1200x/1f/f2/4e/1ff24ec171f3b38543371ea0796444f8.jpg",
+        "category": "HIIT",
+        "workouts": 36
+    },
+    {
+        "image" : "https://i.pinimg.com/736x/49/f3/0c/49f30c55ff9450d4502fa202b4e98554.jpg",
+        "category": "Stretching",
+        "workouts": 17
+    },
+    {
+        "image" : "https://i.pinimg.com/736x/88/5e/7c/885e7c04ba743ba4cc5fde9eefffa719.jpg",
+        "category": "Yoga",
+        "workouts": 15
+    },
+    {
+        "image" : "https://i.pinimg.com/736x/90/80/26/9080268f4da606788ad240a052eb679f.jpg",
+        "category": "Senior fitness",
+        "workouts": 17
+    },
+    {
+        "image" : "https://i.pinimg.com/1200x/75/80/22/758022807e785b8e62a5c82fa6e50058.jpg",
+        "category": "Face yoga",
+        "workouts": 15
+    },
+    {
+        "image" : "https://i.pinimg.com/1200x/75/e3/ee/75e3eeaa85f16cd621b981fd5435d2c2.jpg",
+        "category": "Walking",
+        "workouts": 21
+    },
+    {
+        "image" : "https://i.pinimg.com/1200x/54/06/d6/5406d6bac759851425da523ad02b7148.jpg",
+        "category": "Running",
+        "workouts": 23
+    },
+    {
+        "image" : "https://i.pinimg.com/736x/7b/4b/df/7b4bdfcf9f395e7b8f6030c4f0746d33.jpg",
+        "category": "Tai-Chi",
+        "workouts": 12
+    },
+    {
+        "image" : "https://i.pinimg.com/1200x/53/4f/de/534fde5265a38a3886540483c91bf754.jpg",
+        "category": "Dancing",
+        "workouts": 43
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Pain-free Back Routine",
+        "category": "Pilates",
+        "duration": "31 min",
+        "level": "Newbie",
+        "image": "https://i.pinimg.com/736x/a2/5e/d7/a25ed7bfbbbb782cc482bb6f1c9256d9.jpg"
+    },
+    {
+        "title": "Smooth Flow Cardio Run",
+        "category": "Running",
+        "duration": "20 min",
+        "level": "Newbie",
+        "image": "https://i.pinimg.com/736x/fd/6e/7e/fd6e7e184ac34ddad74e02086f2a640e.jpg"
+    },
+    {
+        "title": "Ultimate Yoga Routine",
+        "category": "Yoga",
+        "duration": "40 min",
+        "level": "Advanced",
+        "image": "https://i.pinimg.com/1200x/57/29/aa/5729aa03c2cecad33df9d41b248e3116.jpg"
+    },
+    {
+        "title": "Glute Activation",
+        "category": "Pilates",
+        "duration": "20 min",
+        "level": "Medium",
+        "image": "https://i.pinimg.com/736x/00/6a/bc/006abc9b7f8b99ea4e8f60ab1fafdd29.jpg"
+    }
+]

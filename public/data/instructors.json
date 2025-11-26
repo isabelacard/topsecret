@@ -1,0 +1,44 @@
+[
+    {   
+        "image": "https://i.pinimg.com/1200x/ff/4c/ac/ff4cacc9bc0bfcbaa17000e3a4045a36.jpg",
+        "trainer": "Kayla Manousselis",
+        "price": "$20.00/month",
+        "description": "Transform your body and mind with personalized, high-energy workouts...",
+        "rating": 5
+    },
+    {   
+        "image": "https://i.pinimg.com/1200x/f1/1c/06/f11c06b0ee59ddbb8ed447c42760f8d0.jpg",
+        "trainer": "Mariana Ceroni",
+        "price": "$13.99/month",
+        "description": "Train with me and reach your goals with discipline, motivation, and fun...",
+        "rating": 3
+    },
+    {   
+        "image": "https://i.pinimg.com/736x/76/b2/b5/76b2b5b2142d61994040e6664e6edfaf.jpg",
+        "trainer": "Georgio Vasco",
+        "price": "$33.00/month",
+        "description": "Effective, tailored routines designed for your level to see real results...",
+        "rating": 4
+    },
+    {
+        "image": "https://i.pinimg.com/736x/29/0c/9d/290c9dc72a4e34e30dcc6d0a4ccc6e0b.jpg",
+        "trainer": "Isabelle Cardona",
+        "price": "$15.99/month",
+        "description": "Burn fat, build muscle, and boost energy with programs designed just for you...",
+        "rating": 4
+    },
+    {
+        "image": "https://i.pinimg.com/736x/89/29/5b/89295b35940212ba393132b262117195.jpg",
+        "trainer": "Anne Gauregi",
+        "price": "$8.90/month",
+        "description": "Guaranteed motivation and consistency, so you never feel alone in your journey...",
+        "rating": 2
+    },
+    {
+        "image": "https://i.pinimg.com/736x/68/44/4b/68444b78dbdceac27718150cc16f6a1d.jpg",
+        "trainer": "Kevin Andrade",
+        "price": "$28.00/month",
+        "description": "I’ll help you achieve the body you’ve always wanted—safely and effectively...",
+        "rating": 5
+    }
+]

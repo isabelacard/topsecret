@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+    font-family: 'Neulis';
+    font-weight: bold;
+    src: url('../public/fonts/Neulis_Cursive-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Neulis';
+    font-weight: medium;
+    src: url('../public/fonts/Neulis_Cursive-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: medium;
+    src: url('../public/fonts/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: normal;
+    src: url('../public/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    src: url('../public/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
