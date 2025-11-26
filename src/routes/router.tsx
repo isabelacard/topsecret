@@ -15,73 +15,70 @@ import AuthLayout from "../layout/AuthLayout";
 import password from "../pages/password/Password";
 import UpdatePassword from "../pages/password/UpdatePassword";
 
-const router = createBrowserRouter(
-    [
-        {
-            path: "/",
-            Component: Splash,
-        },
-        {
-            path: "onboarding1",
-            Component: Onboarding1,
-        },
-        {
-            path: "onboarding2",
-            Component: Onboarding2,
-        },
-        {
-            path: "entrypoint",
-            Component: EntryPoint,
-        },
-        {
-            path: "login",
-            Component: Login,
-        },
-        {
-            path: "signup",
-            Component: Signup,
-        },
-        {
-            path: "password",
-            Component: password,
-        },
-        {
-            path: "update-password", 
-            Component: UpdatePassword,
-        },
-        {
-            path: "auth",
-            Component: AuthLayout,
-            children: [
-                {
-                    path: "home",
-                    Component: Home,
-                },
-                {
-                    path: "profile",
-                    Component: Profile,
-                },
-                {
-                    path: "myworkouts",
-                    Component: Myworkouts,
-                },
-                {
-                    path: "discover",
-                    children: [
-                        {
-                            path: "instructors",
-                            Component: Instructors,
-                        },
-                        {
-                            path: "workouts",
-                            Component: Workouts,
-                        },
-                    ]
-                },
-            ],
-        },
-    ],
-    { basename: "/trevo" }
-);
+const router = createBrowserRouter([
+    {
+        path: "/",
+        Component: Splash,
+    },
+    {
+        path: "onboarding1",
+        Component: Onboarding1,
+    },
+    {
+        path: "onboarding2",
+        Component: Onboarding2,
+    },
+    {
+        path: "entrypoint",
+        Component: EntryPoint,
+    },
+    {
+        path: "login",
+        Component: Login,
+    },
+    {
+        path: "signup",
+        Component: Signup,
+    },
+    {
+        path: "password",
+        Component: password,
+    },
+    {
+        path: "update-password",
+        Component: UpdatePassword,
+    },
+    {
+        path: "auth",
+        Component: AuthLayout,
+        children: [
+            {
+                path: "home",
+                Component: Home,
+            },
+            {
+                path: "profile",
+                Component: Profile,
+            },
+            {
+                path: "myworkouts",
+                Component: Myworkouts,
+            },
+            {
+                path: "discover",
+                children: [
+                    {
+                        path: "instructors",
+                        Component: Instructors,
+                    },
+                    {
+                        path: "workouts",
+                        Component: Workouts,
+                    },
+                ],
+            },
+        ],
+    },
+]);
 
 export default router;
