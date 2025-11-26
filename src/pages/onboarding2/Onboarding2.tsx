@@ -12,7 +12,7 @@ export default function Onboarding2() {
                 <div
                     id="full-page"
                     className="h-screen flex items-center justify-center bg-cover bg-center"
-                    style={{ backgroundImage: "url(./assets/background.png)" }}
+                    style={{ backgroundImage: "url(/trevo/assets/background.png)" }}
                 >
                     <div
                         id="boarding2-container"
@@ -20,14 +20,14 @@ export default function Onboarding2() {
                     >
                         {/* Imagen principal */}
                         <img
-                            src="./assets/image3.png"
+                            src="/trevo/assets/image3.png"
                             alt="Onboarding illustration"
                             className="absolute top-1/3 left-61 transform -translate-x-1/2 -translate-y-1/3 w-90 h-60 object-contain"
                         />
 
                         {/* Título (imagen) */}
                         <img
-                            src="./assets/image4.png"
+                            src="/trevo/assets/image4.png"
                             alt="Onboarding title"
                             className="absolute left-1/2 transform -translate-x-1/2 w-70 h-auto object-contain top-[5%]"
                         />
@@ -62,7 +62,7 @@ export default function Onboarding2() {
                 <div
                     className="flex flex-col items-center justify-between h-screen bg-cover bg-center"
                     style={{
-                        backgroundImage: "url(./assets/backgroundlogin.png)",
+                        backgroundImage: "url(/trevo/assets/backgroundlogin.png)",
                     }}
                 >
                     {/* Parte superior: título y personaje */}
@@ -73,7 +73,7 @@ export default function Onboarding2() {
 
                         <div className="w-full flex justify-center">
                             <img
-                                src="./assets/image3.png"
+                                src="/trevo/assets/image3.png"
                                 alt="Onboarding illustration"
                                 className="object-contain w-full max-w-[380px] h-auto"
                             />

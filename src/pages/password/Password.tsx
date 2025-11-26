@@ -18,7 +18,7 @@ export default function Password() {
 
         // Lógica oficial Supabase con redirect personalizado
         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: "http://localhost:3000/trevo/update-password"
+            redirectTo: "http://localhost:3000/trevo/update-password"//Esto se cambiara cuando ya sea una web entonces en ese momento seria asi: https://NUESTRO_DOMINIO/trevo/update-password
         });
 
         if (!error) {
@@ -31,11 +31,11 @@ export default function Password() {
     };
 
     return (
-        <div className="min-h-screen from-green-50 to-white flex items-center justify-center p-6" style={{ backgroundImage: "url(./assets/background.png)" }}>
+        <div className="min-h-screen from-green-50 to-white flex items-center justify-center p-6" style={{ backgroundImage: "url(/trevo/assets/background.png)" }}>
             <div className="w-full max-w-md bg-[#121212] backdrop-blur-sm rounded-2xl shadow-lg p-8">
                 <h1 className="text-2xl sm:text-3xl font-[neulis] text-white mb-2">Forgot your password?</h1>
                 <p className="text-sm text-white mb-6">
-                    We'll send you an email with instructions to reset your password. Please enter the email associated with your account.
+                    We’ll send you an email with instructions to reset your password. Please enter the email associated with your account.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">

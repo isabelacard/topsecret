@@ -46,7 +46,7 @@ const router = createBrowserRouter(
             Component: password,
         },
         {
-            path: "update-password",
+            path: "update-password", 
             Component: UpdatePassword,
         },
         {
@@ -76,7 +76,7 @@ const router = createBrowserRouter(
                             path: "workouts",
                             Component: Workouts,
                         },
-                    ],
+                    ]
                 },
             ],
         },
