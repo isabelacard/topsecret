@@ -13,6 +13,7 @@ import Workouts from "../pages/discover/workouts/Workouts";
 import Myworkouts from "../pages/myworkouts/myworkouts";
 import AuthLayout from "../layout/AuthLayout";
 import password from "../pages/password/Password";
+import UpdatePassword from "../pages/password/UpdatePassword";
 
 const router = createBrowserRouter(
     [
@@ -43,6 +44,10 @@ const router = createBrowserRouter(
         {
             path: "password",
             Component: password,
+        },
+        {
+            path: "update-password", 
+            Component: UpdatePassword,
         },
         {
             path: "auth",

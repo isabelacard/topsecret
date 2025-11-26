@@ -6,8 +6,8 @@ type Posttype = {
     description: string;
     image: string;
     likes: number;
+    hashtag_id: number;
     hashtag: string;
-    comments: comment[];
 };
 
 type comment = {
@@ -18,6 +18,6 @@ type comment = {
     likes: number;
     liked: boolean;
     date: string;
-}
+};
 
 export type { Posttype, comment };

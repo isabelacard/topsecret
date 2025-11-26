@@ -1,7 +1,7 @@
-import type { WorkoutType } from "../types/myworkoutsTypes";
+import type { myWorkoutType } from "../types/myworkoutsTypes";
 
 interface WorkoutCardProps {
-    workout: WorkoutType;
+    workout: myWorkoutType;
     onClick?: () => void;
 }
 

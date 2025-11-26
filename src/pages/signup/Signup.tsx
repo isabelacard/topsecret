@@ -5,9 +5,8 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ChevronLeft } from "lucide-react";
 
+import authService from "../../services/supabase/authService";
 import { BtnSignUp } from "../../components/BtnSignUp";
-import { getUsers } from "../../services/userServices";
-import type { userType } from "../../types/userTypes";
 
 export default function Signup() {
     const formRef = useRef<HTMLFormElement>(null);
@@ -15,15 +14,7 @@ export default function Signup() {
     const matches = useMediaQuery("(min-width:768px)");
 
     const [showPassword, setShowPassword] = useState(false);
-    const [users, setUsers] = useState<userType[]>([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getUsers();
-            setUsers(data);
-        };
-        fetchData();
-    }, []);
+    const [loading, setLoading] = useState(false); // Estado para evitar doble click
 
     useEffect(() => {
         const prev = document.documentElement.style.overflowX;
@@ -38,7 +29,7 @@ export default function Signup() {
         event.preventDefault();
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const formResponse = formRef.current;
         if (!formResponse) return;
@@ -48,27 +39,28 @@ export default function Signup() {
         const email = (formData.get("email") as string) || "";
         const password = (formData.get("password") as string) || "";
 
-        const existingUser = users.find((u) => u.username === username || u.email === email);
-        if (existingUser) {
-            alert("Este usuario o correo ya está registrado");
-            return;
+        setLoading(true); // Activamos carga
+
+        try {
+            console.info("Intentando registrar usuario:", { username, email });
+            
+            const result = await authService.signUp(email, password, {
+                username: username,
+            });
+
+            if (result.success) {
+                console.info("Usuario registrado con éxito:", result);
+                nav("/login"); 
+            } else {
+                console.error("Fallo en registro:", result);
+                alert("Error al registrar: " + ("Intenta de nuevo"));
+            }
+        } catch (error) {
+            console.error("Error inesperado:", error);
+            alert("Ocurrió un error inesperado.");
+        } finally {
+            setLoading(false); 
         }
-
-        const newUser: userType = {
-            id: Date.now(),
-            username,
-            email,
-            password,
-            posts: 0,
-            followers: 0,
-            workouts: 0,
-            profilePic: "https://i.pinimg.com/736x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg",
-        };
-
-        const updatedUsers = [...users, newUser];
-        localStorage.setItem("users", JSON.stringify(updatedUsers));
-        localStorage.setItem("user", JSON.stringify(newUser));
-        nav("/auth/home");
     };
 
     const textFieldStyle = {
@@ -111,14 +103,15 @@ export default function Signup() {
                 <p className="text-white text-sm font-[poppins] text-center mb-8 w-full max-w-md">of fitness. Are you ready?</p>
 
                 <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-3 w-[90%] md:w-[400px] max-w-md font-[poppins]">
-                    <TextField fullWidth label="Enter username" variant="outlined" name="username" sx={textFieldStyle} />
-                    <TextField fullWidth label="Enter email" variant="outlined" name="email" type="email" sx={textFieldStyle} />
+                    <TextField fullWidth label="Enter username" variant="outlined" name="username" required sx={textFieldStyle} />
+                    <TextField fullWidth label="Enter email" variant="outlined" name="email" type="email" required sx={textFieldStyle} />
                     <TextField
                         fullWidth
                         type={showPassword ? "text" : "password"}
                         label="Password"
                         variant="outlined"
                         name="password"
+                        required
                         sx={textFieldStyle}
                         InputProps={{
                             endAdornment: (
@@ -139,7 +132,7 @@ export default function Signup() {
                         />
                     </div>
 
-                    <BtnSignUp />
+                    {loading ? <p className="text-[#CAD83B]">Loading...</p> : <BtnSignUp />}
 
                     <p className="text-white pt-2 text-[12px] font-[poppins] text-center">
                         Already have an account?{" "}

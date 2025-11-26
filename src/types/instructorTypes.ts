@@ -1,4 +1,5 @@
 type instructorType = {
+    id: number;
     image: string;
     trainer: string;
     price: string;

@@ -4,18 +4,22 @@ import { useMediaQuery } from "@mui/material";
 
 import NavBar from "../../../components/NavBar";
 import NavBarResponsive from "../../../components/NavBarResponsive";
-import { getInstructors } from "../../../services/instructorServices";
+import { getInstructors } from "../../../services/supabase/instructorService";
 import type { instructorType } from "../../../types/instructorTypes";
 import InstructorCard from "../../../components/InstructorCard";
+import Loading from "../../../components/Loading";
 
 export default function Instructors() {
     const [instructors, setInstructors] = useState<instructorType[]>([]);
     const matches = useMediaQuery("(min-width:600px)");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchInstructors = async () => {
+            setLoading(true);
             const data = await getInstructors();
             setInstructors(data);
+            setLoading(false);
         };
         fetchInstructors();
     }, []);
@@ -56,12 +60,16 @@ export default function Instructors() {
                 </div>
 
                 <div className="flex-1 p-8 flex justify-center items-center">
-                    <div className={`${matches ? "grid grid-cols-2 gap-6 max-w-2xl" : "grid grid-cols-1 gap-6 mb-25 max-w-sm mt-7"} mx-auto`}>
-                        {instructors.map((instructor, index) => {
-                            console.info(`Rendering instructor ${index}:`, instructor);
-                            return <InstructorCard key={index} instructor={instructor} />;
-                        })}
-                    </div>
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        <div className={`${matches ? "grid grid-cols-2 gap-6 max-w-2xl" : "grid grid-cols-1 gap-6 mb-25 max-w-sm mt-7"} mx-auto`}>
+                            {instructors.map((instructor, index) => {
+                                console.info(`Rendering instructor ${index}:`, instructor);
+                                return <InstructorCard key={index} instructor={instructor} />;
+                            })}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -6,15 +6,18 @@ import NavBar from "../../components/NavBar";
 import PostCard from "../../components/PostCard";
 import type { Posttype } from "../../types/postTypes";
 import type { instructorType } from "../../types/instructorTypes";
-import { getPosts } from "../../services/postServices";
+import { getPosts } from "../../services/supabase/postService";
 import InstructorCard from "../../components/InstructorCard";
-import { getInstructors } from "../../services/instructorServices";
+import { getInstructors } from "../../services/supabase/instructorService";
 import WorkoutCard from "../../components/WorkoutCard";
 import NavBarResponsive from "../../components/NavBarResponsive";
-import { getWorkouts } from "../../services/workoutServices";
+import { getWorkouts } from "../../services/supabase/workoutService";
 import type { workoutType } from "../../types/workoutTypes";
 import CreatePost from "../../components/CreatePost";
-import Alert from "../../components/Alert"; // 
+import Alert from "../../components/Alert"; 
+import authService from "../../services/supabase/authService";
+import { getUserProfile, type UserProfile } from "../../services/supabase/userService";
+import Loading from "../../components/Loading";
 
 import ContainerHashtag from "./ContainerHashtag";
 
@@ -25,19 +28,42 @@ export default function Home() {
     const matches = useMediaQuery("(min-width:600px)");
     const [instructors, setInstructors] = useState<instructorType[]>([]);
     const [workouts, setWorkouts] = useState<workoutType[]>([]);
-    const currentUser = JSON.parse(localStorage.getItem("user") || "{}");
+    const [currentUser, setCurrentUser] = useState<UserProfile>(JSON.parse(localStorage.getItem("user") || "{}"));
     const [modalOpen, setModalOpen] = useState(false);
+    const [username, setUsername] = useState<string>("");
+    const [loading, setLoading] = useState(true);
 
-    // cargar posts
+    //hi, (user)
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getPosts();
-            setPosts(data);
+        const fetchUser = async () => {
+            const authUser = await authService.getCurrentUser();
+            if (authUser && authUser.email) {
+                const userProfile = await getUserProfile(authUser.email);
+                if (userProfile) {
+                    setUsername(userProfile.username);
+                    setCurrentUser(userProfile);
+                    localStorage.setItem("user", JSON.stringify(userProfile));
+                }
+            }
         };
-        fetchData();
+        fetchUser();
     }, []);
 
-    // cargar instructores
+    // cargar posts
+    const fetchPosts = async () => {
+        const data = await getPosts();
+        setPosts(data);
+    };
+
+    useEffect(() => {
+        const loadData = async () => {
+            setLoading(true);
+            await fetchPosts();
+            setLoading(false);
+        };
+        loadData();
+    }, []);
+
     useEffect(() => {
         const fetchInstructors = async () => {
             const data = await getInstructors();
@@ -84,24 +110,46 @@ export default function Home() {
     ${matches ? "left-[50%] transform -translate-x-1/2 max-w-[600px] w-full h-[200px] z-10" : "left-0 w-full px-4 pt-10 h-auto z-20"}`}
             >
                 <div className={`flex ${matches ? "flex-row gap-8 justify-between items-center mt-10" : "flex-row mt-5 items-center justify-between"} mb-2`}>
-                    <h1 className={`text-[#CAD83B] ${matches ? "text-[50px]" : "text-[35px] text-left"}`}>Hi, {currentUser.username}</h1>
+                    <h1 className={`text-[#CAD83B] ${matches ? "text-[50px]" : "text-[35px] text-left"}`}>{loading ? "Loading..." : `Hi, ${username}`}</h1>
                     <Bell className={`${matches ? "absolute right-10 top-[50%] -translate-y-1/2" : "absolute right-9 top-[70px]"} `} color="white" size={matches ? 28 : 26} />
                 </div>
 
                 <div id="containers" className={`flex ${matches ? "flex-row gap-1" : "flex-wrap mt-9"}`}>
-                    <ContainerHashtag text="#gym" onClick={() => handleHashtagClick("#gym")} />
-                    <ContainerHashtag text="#foodie" onClick={() => handleHashtagClick("#foodie")} />
-                    <ContainerHashtag text="#motivation" onClick={() => handleHashtagClick("#motivation")} />
-                    <ContainerHashtag text="#runnies" onClick={() => handleHashtagClick("#runnies")} />
+                    <ContainerHashtag text="#gym" onClick={() => handleHashtagClick("gym")} />
+                    <ContainerHashtag text="#foodie" onClick={() => handleHashtagClick("foodie")} />
+                    <ContainerHashtag text="#motivation" onClick={() => handleHashtagClick("motivation")} />
+                    <ContainerHashtag text="#runnies" onClick={() => handleHashtagClick("runnies")} />
                 </div>
             </div>
 
             {/* posts */}
             <div className={`${matches ? "ml-[320px] mt-[200px] w-[600px]" : "mt-[25vh] mb-[20vh] w-[90%] mx-auto"}`}>
-                {filteredPosts.map((post: Posttype) => (
-                    <PostCard key={post.id} post={post} currentUser={currentUser} />
-                ))}
+                {loading ? (
+                    <Loading />
+                ) : (
+                    filteredPosts.map((post: Posttype) => (
+                        <PostCard key={post.id} post={post} currentUser={currentUser} />
+                    ))
+                )}
             </div>
+
+            {matches && (
+                <div className="mt-25 ml-8 mr-2" id="extra-info">
+                    <p className="text-[#CAD83B] text-[17px] mb-1">Instructors</p>
+                    <div className="flex gap-5 flex-col">
+                        {instructors.slice(0, 2).map((instructor) => (
+                            <InstructorCard key={instructor.id} instructor={instructor} />
+                        ))}
+                    </div>
+                    <p className="text-[#CAD83B] text-[17px] mb-1 mt-7">Workouts</p>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                        {workouts.slice(0, 4).map((workout) => (
+                            <WorkoutCard key={workout.id} workout={workout} />
+                        ))}
+                    </div>
+                </div>
+            )}
+            <Alert />
 
             {/* modal de crear post */}
             {modalOpen && (
@@ -111,33 +159,12 @@ export default function Home() {
                             onClose={() => setModalOpen(false)}
                             onPost={(newPost) => {
                                 setPosts((prev) => [newPost, ...prev]);
-                                localStorage.setItem("posts", JSON.stringify([newPost, ...posts]));
-                                console.info("Nuevo post agregado:", newPost);
                             }}
                             currentUser={currentUser} 
                         />
                     </div>
                 </dialog>
             )}
-
-            {/* seccion lateral*/}
-            {matches && (
-                <div className="mt-25 ml-8 mr-2" id="extra-info">
-                    <p className="text-[#CAD83B] text-[17px] mb-1">Instructors</p>
-                    <div className="flex gap-5 flex-col">
-                        {instructors.slice(0, 2).map((instructor, index) => (
-                            <InstructorCard key={index} instructor={instructor} />
-                        ))}
-                    </div>
-                    <p className="text-[#CAD83B] text-[17px] mb-1 mt-7">Workouts</p>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                        {workouts.slice(0, 4).map((workout, index) => (
-                            <WorkoutCard key={index} workout={workout} />
-                        ))}
-                    </div>
-                </div>
-            )}
-            <Alert />
         </div>
     );
 }

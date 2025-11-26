@@ -1,13 +1,17 @@
 import { Home, Search, Dumbbell, User, Plus, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 
+import supabase from "../services/supabase/config";
+
 export default function NavBar({ onCreateClick }: { onCreateClick?: () => void }) {
     const navigate = useNavigate();
 
-    const handleLogout = () => {
-        localStorage.removeItem("user");
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        localStorage.removeItem("user"); 
         navigate("/");
     };
+
     return (
         <div className="min-h-screen w-[300px] bg-[#121212] flex flex-col font-[neulis] text-white">
             <h1 className="text-[42px] font-bold text-[#CAD83B] px-6 pt-8 pb-2 pl-7">Trevo</h1>
@@ -42,10 +46,7 @@ export default function NavBar({ onCreateClick }: { onCreateClick?: () => void }
                 </li>
 
                 <li className="py-2">
-                    <button
-                        onClick={onCreateClick} 
-                        className="text-[16px] flex items-center gap-5 px-4 py-2 hover:bg-[#8D6BDE] rounded-lg transition"
-                    >
+                    <button onClick={onCreateClick} className="text-[16px] flex items-center gap-5 px-4 py-2 hover:bg-[#8D6BDE] rounded-lg transition">
                         <Plus size={20} />
                         <span>Create</span>
                     </button>

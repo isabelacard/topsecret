@@ -19,6 +19,7 @@
         "@mui/icons-material": "^7.3.2",
         "@mui/material": "^7.3.2",
         "@reduxjs/toolkit": "^2.10.1",
+        "@supabase/supabase-js": "^2.83.0",
         "dayjs": "^1.11.18",
         "lucide-react": "^0.545.0",
         "react": "^19.1.1",

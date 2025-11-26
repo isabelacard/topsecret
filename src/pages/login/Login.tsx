@@ -5,9 +5,8 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ChevronLeft } from "lucide-react";
 
+import authService from "../../services/supabase/authService";
 import { BtnLogin } from "../../components/BtnLogin";
-import { getUsers } from "../../services/userServices";
-import type { userType } from "../../types/userTypes";
 
 export default function Login() {
     const formRef = useRef<HTMLFormElement>(null);
@@ -15,38 +14,48 @@ export default function Login() {
     const matches = useMediaQuery("(min-width:768px)");
 
     const [showPassword, setShowPassword] = useState(false);
-    const [users, setUsers] = useState<userType[]>([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getUsers();
-            setUsers(data);
+        const prev = document.documentElement.style.overflowX;
+        document.documentElement.style.overflowX = matches ? "hidden" : "";
+        return () => {
+            document.documentElement.style.overflowX = prev?? "";
         };
-        fetchData();
-    }, []);
+    }, [matches]);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         const formResponse = formRef.current;
         if (!formResponse) return;
 
         const formData = new FormData(formResponse);
-        const usernameOrEmail = formData.get("username") as string;
-        const password = formData.get("password") as string;
+        const email = (formData.get("email") as string) || ""; 
+        const password = (formData.get("password") as string) || "";
 
-        const user = users.find((u) => (u.username === usernameOrEmail || u.email === usernameOrEmail) && u.password === password);
+        setLoading(true);
 
-        if (user) {
-            localStorage.setItem("user", JSON.stringify(user));
-            nav("/auth/home");
-        } else {
-            alert("Usuario o contraseña incorrectos.");
+        try {
+            const result = await authService.signIn(email, password);
+
+            if (result.success) {
+                console.info("Login exitoso:", result);
+                nav("/auth/home");
+            } else {
+                console.error("Error en login:", result.error);
+                alert("Usuario o contraseña incorrectos.");
+            }
+        } catch (error) {
+            console.error("Error inesperado:", error);
+            alert("Ocurrió un error inesperado.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -54,7 +63,7 @@ export default function Login() {
         <div className={`flex h-screen overflow-hidden ${matches ? "flex-row" : "flex-col bg-[#111]"}`}>
             {matches && (
                 <div
-                    className="w-1/2 bg-no-repeat bg-cover bg-center relative"
+               className="w-1/2 bg-no-repeat bg-cover bg-center relative"
                     style={{
                         backgroundImage: "url(/trevo/assets/backgroundlogin.png)",
                     }}
@@ -86,18 +95,20 @@ export default function Login() {
             )}
             <div
                 className={`flex flex-col justify-center items-center text-white bg-[#111]
-                    ${matches ? "w-1/2 p-24" : "w-full px-8 py-10 rounded-t-[40px] -mt-12 z-10"}`}
+                ${matches ? "w-1/2 p-24" : "w-full px-8 py-10 rounded-t-[40px] -mt-12 z-10"}`}
             >
                 <h1 className={`${matches ? "text-5xl" : "text-3xl"} font-medium mt-8 mb-4 font-[Neulis] text-center`}>Welcome Back</h1>
                 <p className="text-white mb-1 text-sm font-[poppins] text-center">Ready to continue your fitness journey?</p>
                 <p className="text-white text-sm font-[poppins] text-center mb-8">Your path is right here</p>
 
                 <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-3 w-[90%] md:w-[400px] max-w-md font-[poppins]">
+                    
                     <TextField
                         fullWidth
-                        label="Enter email or username"
+                        label="Username or Email" 
                         variant="outlined"
-                        name="username"
+                        name="email"
+                        required
                         sx={{
                             input: { color: "white" },
                             "& .MuiOutlinedInput-root": {
@@ -116,6 +127,7 @@ export default function Login() {
                         label="Password"
                         variant="outlined"
                         name="password"
+                        required
                         sx={{
                             input: { color: "white" },
                             "& .MuiOutlinedInput-root": {
@@ -130,7 +142,7 @@ export default function Login() {
                             endAdornment: (
                                 <InputAdornment position="end">
                                     <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
-                                        {showPassword ? <Visibility sx={{ color: "purple" }} /> : <VisibilityOff sx={{ color: "white" }} />}
+                                        {showPassword ? <Visibility sx={{ color: "#9b7ff5" }} /> : <VisibilityOff sx={{ color: "white" }} />}
                                     </IconButton>
                                 </InputAdornment>
                             ),
@@ -163,10 +175,10 @@ export default function Login() {
                         </Link>
                     </div>
 
-                    <BtnLogin />
+                    {loading ? <p className="text-white">Iniciando sesión</p> : <BtnLogin />}
 
                     <p className="text-white pt-2 text-[12px] font-[poppins] text-center">
-                        Don’t have an account?{" "}
+                        Don't have an account?{" "}
                         <Link to="/signup" className="text-[#9872F0] underline font-[poppins]">
                             Sign Up
                         </Link>
