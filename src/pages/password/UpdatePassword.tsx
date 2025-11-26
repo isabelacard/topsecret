@@ -70,7 +70,7 @@ export default function UpdatePassword() {
     // Pantalla de carga o error
     if (!sessionReady && !error) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br" style={{ backgroundImage: "url(/trevo/assets/background.png)" }}>
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br" style={{ backgroundImage: "url(/assets/background.png)" }}>
                 <div className="text-center">
                     <span className="loading loading-spinner loading-lg"></span>
                     <p className="mt-4 text-white">Checking link...</p>
@@ -80,7 +80,7 @@ export default function UpdatePassword() {
     }
     if (error && !sessionReady) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br" style={{ backgroundImage: "url(/trevo/assets/background.png)" }}>
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br" style={{ backgroundImage: "url(/assets/background.png)" }}>
                 <div className="bg-[#121212] text-red-600 rounded-xl shadow-lg p-8">
                     <h2 className="text-xl font-bold mb-4">Error:</h2>
                     <p>{error}</p>
@@ -98,7 +98,7 @@ export default function UpdatePassword() {
 
     // Pantalla principal con ojito
     return (
-        <div className="min-h-screen flex items-center justify-center from-green-50 to-white p-6 " style={{ backgroundImage: "url(/trevo/assets/background.png)" }}>
+        <div className="min-h-screen flex items-center justify-center from-green-50 to-white p-6 " style={{ backgroundImage: "url(/assets/background.png)" }}>
             <div className="w-full max-w-md bg-[#121212] backdrop-blur-sm rounded-2xl shadow-lg p-8">
                 <h1 className="text-2xl sm:text-3xl font-[neulis] text-white mb-2">New password</h1>
                 <p className="text-sm text-white mb-6">Enter your new secure password</p>

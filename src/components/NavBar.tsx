@@ -54,7 +54,7 @@ export default function NavBar({ onCreateClick }: { onCreateClick?: () => void }
             </ul>
 
             <div className="flex flex-col ">
-                <img src="/trevo/public/assets/homecharacter.png" alt="" className="w-[170px]" />
+                <img src="/assets/homecharacter.png" alt="" className="w-[170px]" />
                 <button className="flex items-center justify-center mt-16 gap-5 text-white hover:opacity-80 transition cursor-pointer" onClick={handleLogout}>
                     <LogOut size={18} />
                     <span>Log out</span>

@@ -171,7 +171,7 @@ export default function Profile() {
         <>
             {/* --------------------------- VISTA DESKTOP --------------------------- */}
             {matches && (
-                <div id="full-page" className="fixed top-0 left-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: "url(/trevo/assets/backgroundProfile.png)" }}>
+                <div id="full-page" className="fixed top-0 left-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: "url(/assets/backgroundProfile.png)" }}>
                     {/* NAVBAR */}
                     <div id="navbar" className="fixed top-0 left-0 h-full w-[20%] min-w-[280px] max-w-[330px]">
                         <NavBar />
@@ -234,7 +234,7 @@ export default function Profile() {
             )}
             {/* --------------------------- VISTA RESPONSIVE --------------------------- */}
             {!matches && (
-                <div id="full-page-mobile" className="w-full min-h-screen bg-cover bg-center pb-24" style={{ backgroundImage: "url(/trevo/assets/backgroundProfile.png)" }}>
+                <div id="full-page-mobile" className="w-full min-h-screen bg-cover bg-center pb-24" style={{ backgroundImage: "url(/assets/backgroundProfile.png)" }}>
                     {/* NAVBAR RESPONSIVE */}
                     <div className="fixed bottom-0 w-full z-50">
                         <NavBarResponsive />
