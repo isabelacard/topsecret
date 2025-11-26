@@ -31,7 +31,7 @@ export default function Password() {
     };
 
     return (
-        <div className="min-h-screen from-green-50 to-white flex items-center justify-center p-6" style={{ backgroundImage: "url(/assets/background.png)" }}>
+        <div className="min-h-screen from-green-50 to-white flex items-center justify-center p-6" style={{ backgroundImage: "url(/trevo/assets/background.png)" }}>
             <div className="w-full max-w-md bg-[#121212] backdrop-blur-sm rounded-2xl shadow-lg p-8">
                 <h1 className="text-2xl sm:text-3xl font-[neulis] text-white mb-2">Forgot your password?</h1>
                 <p className="text-sm text-white mb-6">

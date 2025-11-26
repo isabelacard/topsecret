@@ -79,7 +79,7 @@ export default function Signup() {
             <div
                 className={`relative bg-no-repeat bg-cover bg-center ${matches ? "w-1/2 h-full overflow-hidden" : "w-full h-[220px] rounded-b-[40px] z-0"}`}
                 style={{
-                    backgroundImage: "url(/assets/backgroundlogin.png)",
+                    backgroundImage: "url(/trevo/assets/backgroundlogin.png)",
                 }}
             >
                 <div className={`font-[Neulis] ${matches ? "absolute left-[100px] top-[200px]" : "flex flex-col justify-center items-center h-full relative"}`}>
@@ -88,12 +88,12 @@ export default function Signup() {
                             <ChevronLeft size={40} color="#CAD83B" strokeWidth={2.2} className="hover:scale-105 transition-transform" />
                         </Link>
                     )}
-                    {matches ? <img src="/assets/logintitle.png" alt="Trevo Title" className="object-contain" style={{ width: "100%", maxWidth: 480, height: "auto" }} /> : <h1 className="text-[50px] font-bold text-[#CAD83B]">Trevo</h1>}
+                    {matches ? <img src="/trevo/assets/logintitle.png" alt="Trevo Title" className="object-contain" style={{ width: "100%", maxWidth: 480, height: "auto" }} /> : <h1 className="text-[50px] font-bold text-[#CAD83B]">Trevo</h1>}
                 </div>
 
                 {matches && (
                     <div className="absolute bottom-0 left-[110px] overflow-hidden" style={{ maxWidth: "60%" }}>
-                        <img src="/assets/loginilustration.png" alt="Signup ilustration" className="object-contain" style={{ width: "100%", maxWidth: 600, height: "auto", display: "block" }} />
+                        <img src="/trevo/assets/loginilustration.png" alt="Signup ilustration" className="object-contain" style={{ width: "100%", maxWidth: 600, height: "auto", display: "block" }} />
                     </div>
                 )}
             </div>

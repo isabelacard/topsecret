@@ -27,7 +27,7 @@ export default function MyWorkouts() {
         <div
             className={`min-h-screen text-white flex ${matches ? "flex-row" : "flex-col"}`}
             style={{
-                backgroundImage: "url(/assets/backgroundProfile.png)",
+                backgroundImage: "url(/trevo/assets/backgroundProfile.png)",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
