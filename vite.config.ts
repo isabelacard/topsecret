@@ -10,7 +10,7 @@ export default defineConfig({
         port: 3000,
     },
     build: {
-        outDir: "dist",
-        assetsDir: "assets",
+        outDir: "dist/trevo",
+        emptyOutDir: true,
     },
 });
