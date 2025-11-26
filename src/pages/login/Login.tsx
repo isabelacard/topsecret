@@ -65,14 +65,14 @@ export default function Login() {
                 <div
                className="w-1/2 bg-no-repeat bg-cover bg-center relative"
                     style={{
-                        backgroundImage: "url(/trevo/assets/backgroundlogin.png)",
+                        backgroundImage: "url(./assets/backgroundlogin.png)",
                     }}
                 >
                     <div className="absolute left-[100px] top-[200px]">
-                        <img src="/trevo/assets/logintitle.png" alt="login title" className="w-[260px] md:w-[320px] lg:w-[480px] object-contain" />
+                        <img src="./assets/logintitle.png" alt="login title" className="w-[260px] md:w-[320px] lg:w-[480px] object-contain" />
                     </div>
                     <div className="absolute bottom-0 left-[110px] w-[65%]">
-                        <img src="/trevo/assets/loginilustration.png" alt="login ilustration" className="w-[600px]" />
+                        <img src="./assets/loginilustration.png" alt="login ilustration" className="w-[600px]" />
                     </div>
                 </div>
             )}
@@ -81,7 +81,7 @@ export default function Login() {
                 <div
                     className="font-[Neulis] relative w-full h-[220px] flex flex-col justify-center items-center rounded-b-[40px]"
                     style={{
-                        backgroundImage: "url(/trevo/assets/backgroundlogin.png)",
+                        backgroundImage: "url(./assets/backgroundlogin.png)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                     }}
