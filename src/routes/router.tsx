@@ -81,7 +81,7 @@ const router = createBrowserRouter(
             ],
         },
     ],
-    { basename: "/trevo/" }
+    { basename: "/" }
 );
 
 export default router;
